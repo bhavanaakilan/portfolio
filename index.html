@@ -4,723 +4,384 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bhavana Akilan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:        #0C0C0C;
-      --white:      #FFFFFF;
-      --paper:      #F9F6F2;
-      --champagne:  #F0E6D8;
-      --accent:     #B8845A;
-      --muted:      #7A6658;
-      --rule:       #1A1A1A;
-      --rule-light: #DDD5CC;
+      --black: #F5F0EA;
+      --white: #0E0C0A;
+      --warm: #161310;
+      --mid: #7A7068;
+      --rule: #2A2520;
+      --accent: #C6A15B;
+      --gold: #C6A15B;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--white);
-      color: var(--ink);
-      font-family: 'EB Garamond', serif;
-      font-size: 19px;
-      line-height: 1.75;
+      color: var(--black);
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ---- NAVIGATION ---- */
+    /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: var(--white);
-    }
-
-    .nav-strip {
-      padding: 0.5rem 3rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #0E0C0A;
+      border-bottom: 1px solid var(--rule);
+      padding: 1.4rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--rule-light);
-    }
-
-    .nav-strip-text {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .nav-main {
-      padding: 1.1rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 2px solid var(--rule);
     }
 
     .nav-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.65rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      color: var(--ink);
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--black);
       text-decoration: none;
     }
 
     .nav-links {
-      display: flex;
-      gap: 2.75rem;
       list-style: none;
-      align-items: center;
+      display: flex;
+      gap: 3rem;
     }
 
     .nav-links a {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Manrope', sans-serif;
       font-size: 0.62rem;
-      letter-spacing: 0.16em;
+      font-weight: 300;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--mid);
       text-decoration: none;
-      transition: color 0.15s;
+      transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover { color: var(--gold); }
 
-    /* ---- HERO ---- */
+    /* HERO */
     #hero {
-      padding-top: 128px;
-      display: grid;
-      grid-template-columns: 55% 45%;
+      padding-top: 80px;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      padding-bottom: 5rem;
       border-bottom: 1px solid var(--rule);
     }
 
-    .hero-left {
-      padding: 5rem 3.5rem 4rem 3rem;
-      border-right: 1px solid var(--rule);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .hero-kicker {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 6vw, 6.5rem);
-      font-weight: 900;
-      line-height: 0.95;
-      letter-spacing: -0.025em;
-      color: var(--ink);
-      margin-bottom: 3rem;
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      font-weight: 400;
-    }
-
-    .hero-standfirst {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: var(--muted);
-      max-width: 440px;
-      margin-bottom: 3.5rem;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.38rem 0.85rem;
-      border: 1px solid var(--rule-light);
-      color: var(--muted);
-    }
-
-    .hero-right {
-      background: var(--ink);
-      padding: 5rem 3rem 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .hero-right-kicker {
-      font-family: 'DM Mono', monospace;
+    .hero-location {
+      font-family: 'Manrope', sans-serif;
       font-size: 0.6rem;
-      letter-spacing: 0.18em;
+      font-weight: 300;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      margin-bottom: 3rem;
+      color: var(--gold);
+      margin-bottom: 4rem;
     }
 
-    .hero-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 2.5vw, 2.4rem);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.4;
-      color: var(--white);
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(5rem, 11vw, 13rem);
+      font-weight: 300;
+      line-height: 0.88;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 4rem;
     }
 
-    .hero-quote strong {
-      font-style: normal;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .hero-vitals {
-      margin-top: auto;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .vital-row {
+    .hero-bottom {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .vital-row:last-child { border-bottom: none; }
-
-    .vr-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.56rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-    }
-
-    .vr-value {
-      font-family: 'EB Garamond', serif;
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.85);
-      text-align: right;
-      max-width: 60%;
-    }
-
-    .hero-footer {
-      display: flex;
-      gap: 0;
+      align-items: flex-end;
       border-top: 1px solid var(--rule);
+      padding-top: 2rem;
     }
 
-    .hero-footer-cell {
-      flex: 1;
-      padding: 1.4rem 3rem;
-      border-right: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
+    .hero-desc {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 480px;
+      line-height: 1.75;
     }
 
-    .hero-footer-cell:last-child { border-right: none; }
-
-    .btn-ink {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.64rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.8rem 1.8rem;
-      background: var(--ink);
-      color: var(--white);
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-
-    .btn-ink:hover { background: var(--accent); }
-
-    .btn-text {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.64rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
-      transition: color 0.15s;
-    }
-
-    .btn-text:hover { color: var(--accent); }
-
-    .hero-footer-note {
-      font-family: 'EB Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--muted);
-    }
-
-    /* ---- SECTION HEADER ---- */
-    .sec-header {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      padding: 1.5rem 3rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .sec-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-    }
-
-    .sec-name {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.66rem;
+    .hero-cta {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.62rem;
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 2px;
+      white-space: nowrap;
+      transition: color 0.2s;
     }
 
-    .sec-line {
-      flex: 1;
-      height: 1px;
-      background: var(--rule-light);
-    }
+    .hero-cta:hover { color: #B8845A; border-color: var(--gold); }
 
-    /* ---- ABOUT ---- */
-    #about {
+    /* SECTION WRAPPER */
+    .section {
       border-bottom: 1px solid var(--rule);
     }
 
-    .about-body {
-      padding: 4.5rem 3rem;
+    .section-inner {
+      padding: 5rem 3rem;
     }
+
+    /* SECTION LABEL */
+    .s-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4rem;
+    }
+
+    /* ABOUT */
+    .about-text {
+      max-width: 680px;
+    }
+
+    .about-text p {
+      font-size: 1.12rem;
+      line-height: 1.85;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
 
     .about-links {
+      margin-top: 3rem;
       display: flex;
+      gap: 2.5rem;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
     }
 
-    .about-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.14em;
+    .text-link {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: var(--black);
       text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
-      transition: color 0.15s;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
     }
 
-    .about-link:hover { color: var(--accent); }
+    .text-link:hover { border-color: #B8845A; color: var(--gold); }
 
-    .about-dropcap-wrap::first-letter {
-      font-family: 'Playfair Display', serif;
-      font-size: 5.5rem;
-      font-weight: 900;
-      line-height: 0.75;
-      float: left;
-      margin: 0.1rem 0.15rem 0 0;
-      color: var(--ink);
+    /* AWARDS */
+    .award-list {
+      display: flex;
+      flex-direction: column;
     }
 
-    .about-body p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      line-height: 1.95;
-      margin-bottom: 1.6rem;
-      font-family: 'EB Garamond', serif;
+    .award-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 200px;
+      gap: 2rem;
+      align-items: baseline;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--rule);
     }
 
-    .about-body p strong { color: var(--ink); font-weight: 500; }
+    .award-row:first-child { border-top: 1px solid var(--rule); }
 
-    .about-pull {
-      margin: 2.5rem 0;
-      padding: 2rem 0;
-      border-top: 2px solid var(--ink);
-      border-bottom: 1px solid var(--rule-light);
+    .award-year {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      color: var(--mid);
     }
 
-    .about-pull p {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.65rem;
+    .award-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.05rem;
+      color: var(--black);
+      line-height: 1.5;
+    }
+
+    .award-org {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--mid);
+      text-align: right;
+    }
+
+    /* EXPERIENCE */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .exp-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .exp-row:first-child { border-top: 1px solid var(--rule); }
+
+    .exp-meta {}
+
+    .exp-org {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.65rem;
       font-weight: 400;
-      font-style: italic;
-      line-height: 1.35;
-      color: var(--ink);
-      margin: 0;
-    }
-
-    .about-feature {
-      background: var(--champagne);
-      padding: 2rem 2.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .af-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-    }
-
-    .af-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.08rem;
-      font-style: italic;
-      line-height: 1.65;
-      color: var(--ink);
-    }
-
-    .af-source {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.54rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 0.8rem;
-    }
-
-    .about-sidebar {
-      padding: 4.5rem 2.5rem;
-      background: var(--paper);
-    }
-
-    .sb-block {
-      padding-bottom: 2rem;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid var(--rule-light);
-    }
-
-    .sb-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-    .sb-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .sb-value {
-      font-family: 'EB Garamond', serif;
-      font-size: 1rem;
-      color: var(--ink);
-      line-height: 1.65;
-    }
-
-    /* ---- AWARDS ---- */
-    #awards { border-bottom: 1px solid var(--rule); }
-
-    .awards-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--rule-light);
-    }
-
-    .ai-headline {
-      padding: 3.5rem 3.5rem 3.5rem 3rem;
-      border-right: 1px solid var(--rule-light);
-    }
-
-    .ai-headline h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 3.5vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--ink);
-    }
-
-    .ai-headline h2 em { font-weight: 400; font-style: italic; }
-
-    .ai-text {
-      padding: 3.5rem 2.5rem;
-    }
-
-    .ai-text p {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    .awards-row {
-      display: grid;
-      border-bottom: 1px solid var(--rule-light);
-    }
-
-    .awards-row-4 { grid-template-columns: repeat(4, 1fr); }
-    .awards-row-3 { grid-template-columns: repeat(3, 1fr); }
-    .awards-row-last { border-bottom: none; }
-
-    .award-card {
-      padding: 2.5rem 2rem;
-      border-right: 1px solid var(--rule-light);
-      transition: background 0.2s;
-    }
-
-    .award-card:last-child { border-right: none; }
-    .award-card:hover { background: var(--champagne); }
-
-    .aw-year {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: var(--rule-light);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .aw-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.35;
-      margin-bottom: 0.65rem;
-    }
-
-    .aw-desc {
-      font-family: 'EB Garamond', serif;
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.72;
-    }
-
-    .aw-value {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-top: 1rem;
-    }
-
-    /* ---- EXPERIENCE ---- */
-    #work { border-bottom: 1px solid var(--rule); }
-
-    .work-intro {
-      padding: 3.5rem 3rem;
-      border-bottom: 1px solid var(--rule-light);
-    }
-
-    .work-intro h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 3.5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--ink);
-      max-width: 700px;
-    }
-
-    .work-intro h2 em { font-style: italic; font-weight: 400; }
-
-    .work-item {
-      display: grid;
-      grid-template-columns: 200px 1fr 180px;
-      border-bottom: 1px solid var(--rule-light);
-      transition: background 0.15s;
-    }
-
-    .work-item:last-child { border-bottom: none; }
-    .work-item:hover { background: var(--paper); }
-
-    .wi-meta {
-      padding: 2.5rem 2rem 2.5rem 3rem;
-      border-right: 1px solid var(--rule-light);
-    }
-
-    .wi-type {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+      line-height: 1.5;
     }
 
-    .wi-org {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.35;
-      margin-bottom: 0.5rem;
-    }
-
-    .wi-date {
-      font-family: 'DM Mono', monospace;
+    .exp-date {
+      font-family: 'Manrope', sans-serif;
       font-size: 0.56rem;
-      letter-spacing: 0.08em;
-      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--mid);
     }
 
-    .wi-body {
-      padding: 2.5rem 2.5rem;
-      border-right: 1px solid var(--rule-light);
-    }
+    .exp-body {}
 
-    .wi-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--ink);
+    .exp-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--black);
       margin-bottom: 0.75rem;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
-    .wi-desc {
-      font-family: 'EB Garamond', serif;
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.88;
+    .exp-desc {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.02rem;
+      color: var(--mid);
+      line-height: 1.85;
     }
 
-    .wi-stat {
-      padding: 2.5rem 2rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .wi-stat p {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.98rem;
-      font-style: italic;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* ---- PROJECTS ---- */
-    #projects { border-bottom: 1px solid var(--rule); }
-
-    .projects-intro {
-      padding: 3.5rem 3rem;
-      border-bottom: 1px solid var(--rule-light);
-    }
-
-    .projects-intro h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 3.5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--ink);
-    }
-
-    .projects-intro h2 em { font-style: italic; font-weight: 400; }
-
-    .projects-grid {
+    /* EDUCATION */
+    .edu-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
     }
 
-    .proj-card {
-      padding: 3rem;
-      border-right: 1px solid var(--rule-light);
-      border-bottom: 1px solid var(--rule-light);
-      transition: background 0.15s;
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
     }
 
-    .proj-card:hover { background: var(--paper); }
-    .proj-card:nth-child(even) { border-right: none; }
-    .proj-card:nth-last-child(-n+2) { border-bottom: none; }
+    .edu-detail {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.8;
+    }
 
-    .proj-kicker {
-      font-family: 'DM Mono', monospace;
+    /* PROJECTS */
+    .proj-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .proj-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 120px;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+
+    .proj-row:first-child { border-top: 1px solid var(--rule); }
+
+    .proj-type {
+      font-family: 'Manrope', sans-serif;
       font-size: 0.58rem;
+      font-weight: 300;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
+      color: var(--mid);
+      line-height: 1.7;
     }
 
     .proj-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1.45rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 1rem;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 0.75rem;
       line-height: 1.25;
     }
 
     .proj-desc {
-      font-family: 'EB Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.88;
-      margin-bottom: 1.75rem;
+      color: var(--mid);
+      line-height: 1.85;
     }
 
-    .proj-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
-      transition: color 0.15s;
+    .proj-link-col {
+      text-align: right;
+      padding-top: 0.15rem;
     }
 
-    .proj-link:hover { color: var(--accent); }
-
-    /* ---- CONTACT ---- */
+    /* CONTACT */
     #contact {
-      background: var(--ink);
+      background: #080705;
     }
 
-    .contact-grid {
+    .contact-inner {
+      padding: 6rem 3rem 5rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      gap: 6rem;
+      align-items: end;
     }
 
-    .contact-left {
-      padding: 5rem 3.5rem 5rem 3rem;
-      border-right: 1px solid rgba(255,255,255,0.08);
+    .contact-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--black);
+      margin-bottom: 3rem;
     }
-
-    .contact-kicker {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2rem;
-    }
-
-    .contact-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--white);
-      margin-bottom: 3.5rem;
-    }
-
-    .contact-headline em { font-style: italic; font-weight: 400; color: var(--accent); }
 
     .contact-items {
       display: flex;
@@ -730,149 +391,105 @@
 
     .contact-item {
       display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      padding: 1.4rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--rule);
       text-decoration: none;
+      transition: opacity 0.2s;
     }
 
-    .contact-item:last-child { border-bottom: none; }
+    .contact-item:first-child { border-top: 1px solid var(--rule); }
+    .contact-item:hover { opacity: 0.6; }
 
-    .ci-label {
-      font-family: 'DM Mono', monospace;
+    .ci-type {
+      font-family: 'Manrope', sans-serif;
       font-size: 0.56rem;
-      letter-spacing: 0.16em;
+      font-weight: 300;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: var(--mid);
     }
 
-    .ci-value {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.85);
-      transition: color 0.15s;
+    .ci-val {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      color: var(--black);
     }
-
-    .contact-item:hover .ci-value { color: var(--accent); }
 
     .contact-right {
-      padding: 5rem 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding-bottom: 0.5rem;
     }
 
-    .contact-manifesto {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-style: italic;
-      font-weight: 400;
-      line-height: 1.55;
-      color: rgba(255,255,255,0.45);
-    }
-
-    .contact-manifesto strong {
-      font-style: normal;
-      font-weight: 700;
-      color: rgba(255,255,255,0.85);
+    .contact-note {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.1rem;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 3rem;
     }
 
     .contact-status {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      padding-top: 3rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    .status-dot {
-      width: 7px; height: 7px;
+    .dot {
+      width: 6px; height: 6px;
       background: var(--accent);
       border-radius: 50%;
-      animation: pulse 2.5s ease-in-out infinite;
+      animation: pulse 3s ease-in-out infinite;
       flex-shrink: 0;
     }
 
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
-    .status-text {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
+    .contact-status-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.56rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      color: var(--mid);
     }
 
-    /* ---- FOOTER ---- */
     footer {
-      background: var(--ink);
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 1.4rem 3rem;
+      background: #080705;
+      border-top: 1px solid var(--rule);
+      padding: 1.5rem 3rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
     }
 
-    .footer-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.2);
+    .footer-l, .footer-r {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.54rem;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
     }
 
-    .footer-copy {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.15);
-    }
-
-
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 960px) {
-      .nav-strip { padding: 0.5rem 1.5rem; }
-      .nav-main { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
-      #hero { grid-template-columns: 1fr; padding-top: 110px; }
-      .hero-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 3rem 1.5rem; }
-      .hero-right { padding: 3rem 1.5rem; }
-      .hero-footer { flex-direction: column; }
-      .hero-footer-cell { border-right: none; border-bottom: 1px solid var(--rule-light); padding: 1.25rem 1.5rem; }
-      .hero-footer-cell:last-child { border-bottom: none; }
-      #about { border-bottom: 1px solid var(--rule); flex-direction: column; }
-      .about-body {
-      padding: 4.5rem 3rem;
-    }
-      .about-img-col { width: 100%; height: 320px; border-left: none; border-top: 1px solid var(--rule); }
-      .hero-image-wrap { height: 320px; }
-      .awards-intro { grid-template-columns: 1fr; }
-      .ai-headline { border-right: none; border-bottom: 1px solid var(--rule-light); padding: 2.5rem 1.5rem; }
-      .ai-text { padding: 2.5rem 1.5rem; }
-      .awards-row-4 { grid-template-columns: 1fr 1fr; }
-      .awards-row-3 { grid-template-columns: 1fr 1fr; }
-      .work-intro { padding: 2.5rem 1.5rem; }
-      .work-item { grid-template-columns: 1fr; }
-      .wi-meta { border-right: none; border-bottom: 1px solid var(--rule-light); padding: 2rem 1.5rem; }
-      .wi-body { border-right: none; padding: 2rem 1.5rem; }
-      .wi-stat { padding: 1.5rem 1.5rem; border-top: 1px solid var(--rule-light); }
-      .projects-grid { grid-template-columns: 1fr; }
-      .proj-card { border-right: none; }
-      .proj-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule-light); }
-      .proj-card:last-child { border-bottom: none; }
-      .projects-intro { padding: 2.5rem 1.5rem; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .contact-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 3.5rem 1.5rem; }
-      .contact-right { padding: 3rem 1.5rem; }
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { gap: 1.75rem; }
+      #hero { padding: 6rem 1.5rem 3.5rem; }
+      .section-inner { padding: 3.5rem 1.5rem; }
+      .award-row { grid-template-columns: 80px 1fr; }
+      .award-org { display: none; }
+      .exp-row { grid-template-columns: 1fr; gap: 1rem; }
+      .edu-row { grid-template-columns: 1fr; gap: 1rem; }
+      .proj-row { grid-template-columns: 1fr; gap: 1rem; }
+      .proj-link-col { text-align: left; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem 3.5rem; }
       footer { padding: 1.25rem 1.5rem; }
-      .sec-header { padding: 1.25rem 1.5rem; }
     }
 
-    @media (max-width: 580px) {
-      .awards-row-4 { grid-template-columns: 1fr; }
-      .awards-row-3 { grid-template-columns: 1fr; }
-      .award-card { border-right: none; }
-      .nav-name { font-size: 1.25rem; }
-      .nav-links { gap: 1rem; }
+    @media (max-width: 500px) {
+      .hero-name { font-size: clamp(3.5rem, 16vw, 5rem); }
+      .nav-links { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -882,402 +499,301 @@
 </head>
 <body>
 
-<!-- NAVIGATION -->
 <nav>
-  <div class="nav-strip">
-    <span class="nav-strip-text">Toronto, Canada</span>
-    <span class="nav-strip-text">Neuroscientist. Strategist. Founder.</span>
-    <span class="nav-strip-text">2026</span>
-  </div>
-  <div class="nav-main">
-    <a href="#hero" class="nav-name">Bhavana Akilan</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#awards">Recognition</a></li>
-      <li><a href="#work">Experience</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
+  <a href="#hero" class="nav-name">Bhavana Akilan</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
-<div id="hero">
-  <div class="hero-left" style="border-right:none; grid-column: 1 / -1;">
-    <div>
-      <p class="hero-kicker">Portfolio</p>
-      <h1 class="hero-headline">
-        Bhavana Akilan
-      </h1>
-      <p class="hero-standfirst">
-        Honours BSc Neuroscience, University of Toronto. Published researcher in applied AI diagnostics. Strategist and founder working at the intersection of AI, healthcare, and commercial strategy.
-      </p>
-    </div>
-    <div class="hero-tags">
-      <span class="tag">Venture Capital</span>
-      <span class="tag">Strategy Consulting</span>
-      <span class="tag">Business Development</span>
-      <span class="tag">AI and Neuroscience</span>
-      <span class="tag">Healthcare Technology</span>
-    </div>
+<section id="hero">
+  <p class="hero-location">Toronto, Canada &nbsp; 2026</p>
+  <h1 class="hero-name">Bhavana<br>Akilan</h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">Neuroscience graduate, published researcher, and strategist. Working at the intersection of AI, healthcare, and commercial strategy. Open to venture capital, consulting, and business development roles.</p>
+    <a href="#contact" class="hero-cta">Get in touch</a>
   </div>
-
-  <div class="hero-footer" style="grid-column: 1 / -1;">
-    <div class="hero-footer-cell">
-      <a href="#contact" class="btn-ink">Get in touch</a>
-    </div>
-    <div class="hero-footer-cell">
-      <a href="#work" class="btn-text">View experience</a>
-    </div>
-    <div class="hero-footer-cell">
-      <span class="hero-footer-note">Open to VC, consulting, and BDR roles.</span>
-    </div>
-  </div>
-</div>
+</section>
 
 <!-- ABOUT -->
-<div class="sec-header" id="about">
-  <span class="sec-num">01</span>
-  <span class="sec-name">About</span>
-  <span class="sec-line"></span>
-</div>
-
-<div id="about">
-  <div class="about-body">
-    <p class="about-dropcap-wrap">Neuroscience graduate from the University of Toronto with published research in deep learning diagnostics, clinical research experience across psychiatric assessment and public health, and applied strategy experience spanning healthcare advisory and luxury brand communications in Southeast Asia. Currently advising early-stage digital health companies at StrategyRx and conducting analytics inside an a16z-backed spatial AI startup.</p>
-
-    <p>Founded <strong>SIINAI</strong> at UofT, growing it from zero to 200-plus members in under three months, and co-established a women's mental health collective in Murang'a County, Kenya through the KULE Foundation International. Currently building <strong>4-8</strong>, a consumer neurotechnology product that makes prefrontal cortical activity measurable in real time via frontal theta EEG oscillations.</p>
-
-    <p>Seeking roles in venture capital, strategy consulting, and business development where analytical rigour and cross-domain pattern recognition create compounding strategic advantage.</p>
-
-    <div class="about-feature">
-      <p class="af-label">Featured by University of Toronto, 2025</p>
-      <p class="af-quote">"From using deep learning to decode brain signals in India to launching a mental health collective in Kenya and directing a documentary in Toronto, Bhavana Akilan's journey at U of T Scarborough has spanned disciplines, continents and communities."</p>
+<div class="section" id="about">
+  <div class="section-inner">
+    <p class="s-label">About</p>
+    <div class="about-text">
+      <p>Neuroscience and Health Humanities graduate from the University of Toronto with published research in deep learning diagnostics and two years of clinical research experience spanning psychiatric assessment and public health. Applied strategy experience across healthcare advisory and luxury brand communications in Southeast Asia, with clients including APM Monaco, Poh Heng, and Abel Richard.</p>
+      <p>Currently advising early-stage digital health companies at StrategyRx and conducting analytics inside an a16z-backed spatial AI startup. Building 4-8, a consumer neurotechnology product that measures prefrontal cortical activity in real time via frontal theta EEG oscillations. Founded SIINAI at UofT, growing it from zero to 200-plus members in three months, and co-established a women's mental health collective in Murang'a County, Kenya.</p>
     </div>
-
     <div class="about-links">
-      <a href="https://www.utoronto.ca/news/u-t-grad-blends-neuroscience-art-and-community-across-three-continents" target="_blank" class="about-link">UofT News: Neuroscience, Art and Community</a>
-      <a href="https://utsc.utoronto.ca/news-events/our-community/u-t-scarborough-grads-project-kenya-blossoms-self-run-womens-support-network" target="_blank" class="about-link">UTSC: Kenya Women's Collective</a>
+      <a href="https://www.utoronto.ca/news/u-t-grad-blends-neuroscience-art-and-community-across-three-continents" target="_blank" class="text-link">UofT News Feature</a>
+      <a href="https://utsc.utoronto.ca/news-events/our-community/u-t-scarborough-grads-project-kenya-blossoms-self-run-womens-support-network" target="_blank" class="text-link">UTSC: Kenya Project</a>
     </div>
   </div>
 </div>
 
-<!-- EDUCATION (brief, after experience) -->
-
-<!-- AWARDS -->
-<div class="sec-header" id="awards">
-  <span class="sec-num">02</span>
-  <span class="sec-name">Recognition and Awards</span>
-  <span class="sec-line"></span>
-</div>
-
-<div id="awards">
-  <div class="awards-intro">
-    <div class="ai-headline">
-      <h2>Institutional recognition across <em>research, leadership,</em> and innovation.</h2>
-    </div>
-    <div class="ai-text">
-      <p>A record of academic distinction, research prizes, and competitive selection across the University of Toronto, national competitions, and the Canadian innovation ecosystem. All awards independently verified from primary institutional sources.</p>
-    </div>
-  </div>
-
-  <div class="awards-row awards-row-4">
-    <div class="award-card">
-      <p class="aw-year">2025</p>
-      <h3 class="aw-title">UTSC Undergraduate Research and Creative Prize</h3>
-      <p class="aw-desc">Humanities Category. Awarded by the UTSC Library and OVPRI for excellence in research and creative scholarship. Featured on the UTSC Library and OVPRI websites.</p>
-      <p class="aw-value">$1,000 Prize</p>
-    </div>
-    <div class="award-card">
-      <p class="aw-year">2024</p>
-      <h3 class="aw-title">UTSC Undergraduate Research and Creative Prize</h3>
-      <p class="aw-desc">Humanities Category. Second consecutive award for outstanding undergraduate research at the University of Toronto Scarborough.</p>
-      <p class="aw-value">$1,000 Prize</p>
-    </div>
-    <div class="award-card">
-      <p class="aw-year">2025</p>
-      <h3 class="aw-title">UTSC Research and Creative Forum Finalist</h3>
-      <p class="aw-desc">Selected as a finalist at the UTSC Undergraduate Research and Creative Forum. Featured in the UTSC institutional repository TSpace.</p>
-      <p class="aw-value">UTSC Library</p>
-    </div>
-    <div class="award-card">
-      <p class="aw-year">2021</p>
-      <h3 class="aw-title">UofT International Scholar Award</h3>
-      <p class="aw-desc">Merit-based entrance scholarship awarded to exceptional international students at one of the world's top ten universities.</p>
-      <p class="aw-value">$107,500</p>
-    </div>
-  </div>
-
-  <div class="awards-row awards-row-3">
-    <div class="award-card">
-      <p class="aw-year">2023</p>
-      <h3 class="aw-title">Laidlaw Leadership and Research Scholarship</h3>
-      <p class="aw-desc">Awarded to exceptional undergraduates to pursue independent research. Conducted at SASTRA Deemed University, India on deep learning approaches to Alzheimer's diagnosis via EEG.</p>
-      <p class="aw-value">$12,500</p>
-    </div>
-    <div class="award-card">
-      <p class="aw-year">2024</p>
-      <h3 class="aw-title">Dean's Circle Fellow</h3>
-      <p class="aw-desc">Selected as 1 of 20 from over 10,000 UTSC undergraduates for the inaugural Dean's Circle: Leading from Within programme, described as the first of its kind in North America.</p>
-      <p class="aw-value">1 of 20 Selected</p>
-    </div>
-    <div class="award-card">
-      <p class="aw-year">2023</p>
-      <h3 class="aw-title">First Place, UTSC x Ontario Shores Hackathon</h3>
-      <p class="aw-desc">Winning team designed an AI-powered solution for Ontario Shores Centre for Mental Health Sciences. Secured ongoing partnership to implement the solution.</p>
-      <p class="aw-value">$5,000 Prize</p>
-    </div>
-  </div>
-
-  <div class="awards-row awards-row-3 awards-row-last">
-    <div class="award-card">
-      <p class="aw-year">2024</p>
-      <h3 class="aw-title">People's Choice Award, Global Health Case Competition</h3>
-      <p class="aw-desc">Partners in Health Canada. National-level competition recognising outstanding analytical work and healthcare solutions framework presentation.</p>
-      <p class="aw-value">Partners in Health Canada</p>
-    </div>
-    <div class="award-card">
-      <p class="aw-year">2024</p>
-      <h3 class="aw-title">Second Place, TASME Conference</h3>
-      <p class="aw-desc">Technological Advances in Science, Medicine, and Engineering. Recognised for research across an interdisciplinary science and engineering conference.</p>
-      <p class="aw-value">TASME 2024</p>
-    </div>
-    <div class="award-card">
-      <p class="aw-year">2023</p>
-      <h3 class="aw-title">Sophia Hilton Library Storytelling Fellowship</h3>
-      <p class="aw-desc">Directed short documentary "Flavours in Fusion: Stories of Tamil Food in Toronto." Awarded by the UTSC Library. Featured in the 2025 UTSC graduate profile series.</p>
-      <p class="aw-value">UTSC Library Fellowship</p>
+<!-- RECOGNITION -->
+<div class="section" id="recognition">
+  <div class="section-inner">
+    <p class="s-label">Recognition</p>
+    <div class="award-list">
+      <div class="award-row">
+        <span class="award-year">2021</span>
+        <span class="award-title">University of Toronto International Scholar Award</span>
+        <span class="award-org">$107,500</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2023</span>
+        <span class="award-title">Laidlaw Leadership and Research Scholarship</span>
+        <span class="award-org">$12,500</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2023</span>
+        <span class="award-title">First Place, UTSC x Ontario Shores Hackathon</span>
+        <span class="award-org">$5,000</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2023</span>
+        <span class="award-title">Sophia Hilton Library Storytelling Fellowship</span>
+        <span class="award-org">UTSC Library</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2024</span>
+        <span class="award-title">Dean's Circle Fellow, 1 of 20 from 10,000-plus undergraduates</span>
+        <span class="award-org">University of Toronto</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2024</span>
+        <span class="award-title">People's Choice Award, Global Health Case Competition</span>
+        <span class="award-org">Partners in Health Canada</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2024</span>
+        <span class="award-title">Second Place, TASME Conference</span>
+        <span class="award-org">Science, Medicine and Engineering</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2024</span>
+        <span class="award-title">UTSC Undergraduate Research and Creative Prize, Humanities</span>
+        <span class="award-org">$1,000</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2025</span>
+        <span class="award-title">UTSC Undergraduate Research and Creative Prize, Humanities</span>
+        <span class="award-org">$1,000</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2025</span>
+        <span class="award-title">UTSC Undergraduate Research Forum Finalist</span>
+        <span class="award-org">UTSC Library</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2021 - 2025</span>
+        <span class="award-title">Dean's List</span>
+        <span class="award-org">University of Toronto</span>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- EXPERIENCE -->
-<div class="sec-header" id="work">
-  <span class="sec-num">03</span>
-  <span class="sec-name">Professional Experience</span>
-  <span class="sec-line"></span>
-</div>
+<div class="section" id="experience">
+  <div class="section-inner">
+    <p class="s-label">Experience</p>
+    <div class="exp-list">
 
-<div id="work">
-  <div class="work-intro">
-    <h2>Strategic advisory, applied research, and client-facing delivery across <em>AI, healthcare, and luxury markets.</em></h2>
-  </div>
+      <div class="exp-row">
+        <div class="exp-meta">
+          <p class="exp-org">Stealth-Stage Spatial Intelligence Startup (a16z-backed)</p>
+          <p class="exp-date">June 2026 - Present</p>
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">QA Analyst, Spatial Intelligence</p>
+          <p class="exp-desc">Embedded within an early-stage AI company building world model technology. Completing 500-plus structured quality assessments weekly, developing analytical frameworks for novel spatial data evaluation, and producing feedback reports that directly shape the product development trajectory.</p>
+        </div>
+      </div>
 
-  <div class="work-item">
-    <div class="wi-meta">
-      <p class="wi-type">AI Analytics</p>
-      <p class="wi-org">Stealth-Stage Spatial Intelligence Startup (a16z-backed)</p>
-      <p class="wi-date">June 2026 -- Present</p>
-    </div>
-    <div class="wi-body">
-      <h3 class="wi-title">QA Analyst, Spatial Intelligence</h3>
-      <p class="wi-desc">Embedded within an early-stage AI company building world model technology backed by Andreessen Horowitz. Completing 500-plus structured quality assessments per week, developing analytical frameworks for novel spatial data evaluation, and producing structured feedback reports that directly shape the product development trajectory. Operating with full autonomy at the frontier of AI infrastructure investment.</p>
-    </div>
-    <div class="wi-stat">
-      <p>500-plus assessments weekly. a16z portfolio company.</p>
-    </div>
-  </div>
+      <div class="exp-row">
+        <div class="exp-meta">
+          <p class="exp-org">StrategyRx</p>
+          <p class="exp-date">March 2026 - Present</p>
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Strategy and Operations Associate</p>
+          <p class="exp-desc">Strategic advisory for early-stage digital health companies. Led development of the Clinical Feasibility Framework, the firm's core proprietary methodology for evaluating healthcare technology adoption readiness. Conducted competitive landscape analysis and market sizing. Supported outreach across 130-plus prospect healthcare organisations.</p>
+        </div>
+      </div>
 
-  <div class="work-item">
-    <div class="wi-meta">
-      <p class="wi-type">Healthcare Strategy</p>
-      <p class="wi-org">StrategyRx</p>
-      <p class="wi-date">March 2026 -- Present</p>
-    </div>
-    <div class="wi-body">
-      <h3 class="wi-title">Strategy and Operations Associate</h3>
-      <p class="wi-desc">Contributing to strategic advisory mandates for early-stage digital health companies. Led development of the Clinical Feasibility Framework, the firm's core proprietary methodology for evaluating healthcare technology adoption readiness across clinical, operational, and strategic dimensions. Conducted competitive landscape analysis and market sizing. Supported business development outreach across 130-plus prospect healthcare organisations.</p>
-    </div>
-    <div class="wi-stat">
-      <p>130-plus prospect organisations. Clinical Feasibility Framework lead.</p>
-    </div>
-  </div>
+      <div class="exp-row">
+        <div class="exp-meta">
+          <p class="exp-org">COCO PR Agency and Communications, Singapore</p>
+          <p class="exp-date">August 2025 - April 2026</p>
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Marketing and PR Strategist</p>
+          <p class="exp-desc">Managed strategic communications across 10 concurrent client accounts in Southeast Asia, including APM Monaco, Poh Heng, and Abel Richard. Placed 500-plus KOL features across top-tier UK and Singapore publications. Built and maintained a network of 200-plus journalists and industry operators. Maintained 100 percent on-time delivery.</p>
+        </div>
+      </div>
 
-  <div class="work-item">
-    <div class="wi-meta">
-      <p class="wi-type">Luxury Brand Strategy</p>
-      <p class="wi-org">COCO PR Agency and Communications, Singapore</p>
-      <p class="wi-date">August 2025 -- April 2026</p>
-    </div>
-    <div class="wi-body">
-      <h3 class="wi-title">Marketing and PR Strategist</h3>
-      <p class="wi-desc">Managed strategic communications across a portfolio of 10 concurrent client accounts in Southeast Asia, including ultra-high luxury jewellery and lifestyle brands APM Monaco, Poh Heng, and Abel Richard. Placed 500-plus KOL features and media stories across top-tier UK and Singapore publications. Built and maintained a proprietary network of 200-plus industry operators, journalists, and KOLs. Maintained 100 percent on-time delivery across all client engagements.</p>
-    </div>
-    <div class="wi-stat">
-      <p>500-plus placements. APM Monaco, Poh Heng, Abel Richard.</p>
-    </div>
-  </div>
+      <div class="exp-row">
+        <div class="exp-meta">
+          <p class="exp-org">Ontario Institute for Studies in Education, UofT</p>
+          <p class="exp-date">September 2023 - April 2025</p>
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Research Assistant</p>
+          <p class="exp-desc">Synthesised evidence across 1,000-plus academic sources for a multi-year scoping review contributing to peer-reviewed publication. Conducted large-scale quantitative and qualitative analysis of social media datasets. Coordinated a research team of seven using REDCap, Covidence, and Qualtrics.</p>
+        </div>
+      </div>
 
-  <div class="work-item">
-    <div class="wi-meta">
-      <p class="wi-type">Public Health Research</p>
-      <p class="wi-org">Ontario Institute for Studies in Education, UofT</p>
-      <p class="wi-date">September 2023 -- April 2025</p>
-    </div>
-    <div class="wi-body">
-      <h3 class="wi-title">Research Assistant</h3>
-      <p class="wi-desc">Synthesised evidence across 1,000-plus academic sources for a multi-year scoping review with findings contributing to peer-reviewed publication. Conducted large-scale quantitative and qualitative analysis of social media datasets to identify behavioural trends informing public health communication strategy. Coordinated deliverables across a research team of seven using REDCap, Covidence, and Qualtrics.</p>
-    </div>
-    <div class="wi-stat">
-      <p>1,000-plus sources synthesised. Peer-reviewed publication.</p>
-    </div>
-  </div>
+      <div class="exp-row">
+        <div class="exp-meta">
+          <p class="exp-org">Therapeutic Interventions for Psychosis Lab, UofT</p>
+          <p class="exp-date">September 2023 - September 2024</p>
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Research Assistant</p>
+          <p class="exp-desc">Conducted clinical assessments using validated psychiatric scales including PSYRATS, BNSS, PSP, PANSS-6, and ASQ-NIMH. Contributed to literature reviews on CBT for psychosis. Presented findings at the Clinical Evaluation and Research Cluster, 2023.</p>
+        </div>
+      </div>
 
-  <div class="work-item">
-    <div class="wi-meta">
-      <p class="wi-type">Clinical Research</p>
-      <p class="wi-org">TIP Lab, University of Toronto</p>
-      <p class="wi-date">September 2023 -- September 2024</p>
-    </div>
-    <div class="wi-body">
-      <h3 class="wi-title">Research Assistant</h3>
-      <p class="wi-desc">Conducted trauma-informed clinical assessments using validated psychiatric scales including PSYRATS, BNSS, PSP, PANSS-6, and ASQ-NIMH under Dr. Michael Best. Contributed to literature reviews on CBT for psychosis and recovery-oriented interventions. Presented findings at the Clinical Evaluation and Research Cluster, 2023.</p>
-    </div>
-    <div class="wi-stat">
-      <p>PSYRATS, BNSS, PANSS-6. CERC 2023 presentation.</p>
-    </div>
-  </div>
+      <div class="exp-row">
+        <div class="exp-meta">
+          <p class="exp-org">KULE Foundation International, Kenya</p>
+          <p class="exp-date">May 2023 - Present</p>
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Program Lead, Women's Collective</p>
+          <p class="exp-desc">Co-established a community mental health programme for 50-plus rural women in Murang'a County, Kenya through the Laidlaw Scholars Leadership-in-Action programme. Programme designed through qualitative needs assessments. Research incorporated into an autoethnographic zine, awarded the UTSC Undergraduate Research and Creative Prize. Programme continues to operate independently.</p>
+        </div>
+      </div>
 
-  <div class="work-item">
-    <div class="wi-meta">
-      <p class="wi-type">Community Health</p>
-      <p class="wi-org">KULE Foundation International, Kenya</p>
-      <p class="wi-date">May 2023 -- Present</p>
-    </div>
-    <div class="wi-body">
-      <h3 class="wi-title">Program Lead, Women's Collective</h3>
-      <p class="wi-desc">Co-established and led a community mental health programme for 50-plus rural women in Murang'a County, Kenya through the Laidlaw Scholars Leadership-in-Action programme. Designed program structure through qualitative needs assessments conducted in Swahili and Kikuyu. Research incorporated into an autoethnographic zine, awarded the UTSC Undergraduate Research and Creative Prize. Programme continues to operate independently.</p>
-    </div>
-    <div class="wi-stat">
-      <p>50-plus women. Self-sustaining programme. Prize-winning research.</p>
     </div>
   </div>
 </div>
 
-<!-- EDUCATION (brief, after experience) -->
-<div class="sec-header">
-  <span class="sec-num">04</span>
-  <span class="sec-name">Education</span>
-  <span class="sec-line"></span>
-</div>
-
-<div style="border-bottom: 1px solid var(--rule); padding: 2.5rem 3rem; display: grid; grid-template-columns: 200px 1fr; gap: 0;">
-  <div style="border-right: 1px solid var(--rule-light); padding-right: 2rem;">
-    <p style="font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;">2021 -- 2025</p>
-    <p style="font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--ink); line-height: 1.35;">University of Toronto Scarborough</p>
-  </div>
-  <div style="padding-left: 2.5rem;">
-    <p style="font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem;">Honours Bachelor of Science, Neuroscience</p>
-    <p style="font-family: 'EB Garamond', serif; font-size: 1rem; color: var(--muted); line-height: 1.75;">Double Minors in Psychology and Health Humanities. UofT International Scholar ($107,500). Laidlaw Scholar ($12,500). Dean's Circle Fellow, 1 of 20 from 10,000-plus undergraduates. Women-in-Leadership Fellow. Dean's List 2021-2025. Sophia Hilton Library Storytelling Fellow.</p>
+<!-- EDUCATION -->
+<div class="section" id="education">
+  <div class="section-inner">
+    <p class="s-label">Education</p>
+    <div class="edu-row">
+      <div class="exp-meta">
+        <p class="exp-org">University of Toronto Scarborough</p>
+        <p class="exp-date">2021 - 2025</p>
+      </div>
+      <div>
+        <p class="edu-degree">Honours BSc, Neuroscience</p>
+        <p class="edu-detail">Double Minors in Psychology and Health Humanities. International Scholar Award ($107,500). Laidlaw Scholar ($12,500). Dean's Circle Fellow, 1 of 20 from 10,000-plus undergraduates. Women-in-Leadership Fellow. Dean's List 2021-2025. Sophia Hilton Library Storytelling Fellow.</p>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- PROJECTS -->
-<div class="sec-header" id="projects">
-  <span class="sec-num">05</span>
-  <span class="sec-name">Research and Independent Work</span>
-  <span class="sec-line"></span>
-</div>
+<div class="section" id="projects">
+  <div class="section-inner">
+    <p class="s-label">Research and Projects</p>
+    <div class="proj-list">
 
-<div id="projects">
-  <div class="projects-intro">
-    <h2>Published research, independent investment analysis, <em>and venture-stage work.</em></h2>
-  </div>
+      <div class="proj-row">
+        <p class="proj-type">Founder<br>Current</p>
+        <div>
+          <p class="proj-title">4-8 Neurotechnology</p>
+          <p class="proj-desc">Consumer neurotechnology product measuring prefrontal cortical activity in real time. The core product is a continuous cognitive bandwidth index derived from frontal theta oscillations (4-8 Hz) via dry electrode EEG, grounded in published deep learning research on neurological diagnosis. Seeking technical co-founder and clinical collaborators.</p>
+        </div>
+        <div class="proj-link-col">
+          <a href="https://4to8.netlify.app/" target="_blank" class="text-link">View</a>
+        </div>
+      </div>
 
-  <div class="projects-grid">
-    <div class="proj-card">
-      <p class="proj-kicker">Venture / Founder / Current</p>
-      <h3 class="proj-title">4-8 Neurotechnology</h3>
-      <p class="proj-desc">Building a consumer neurotechnology product that makes prefrontal cortical activity measurable in real time. The core product is a continuous cognitive bandwidth index derived from frontal theta oscillations (4-8 Hz) via dry electrode EEG, grounded in over four decades of replicated neuroscience research. Directly informed by published deep learning research in EEG-based neurological diagnosis. Currently seeking technical co-founder and clinical collaborators.</p>
-      <a href="https://4to8.netlify.app/" target="_blank" class="proj-link">View project</a>
-    </div>
+      <div class="proj-row">
+        <p class="proj-type">Published Research<br>2024</p>
+        <div>
+          <p class="proj-title">Deep Learning for Alzheimer's Diagnosis via EEG</p>
+          <p class="proj-desc">Deep learning classification tool for early-stage Alzheimer's diagnosis using EEG datasets, focusing on entropy-based and spectral feature engineering. Conducted as a Laidlaw Scholar at SASTRA Deemed University, India. Published in MDPI Technologies Journal, 2024. Co-authored a second paper on global health outcomes in Risk Management and Healthcare Policy, 2024.</p>
+        </div>
+        <div class="proj-link-col">
+          <span class="text-link" style="cursor:default; border-color: var(--rule);">MDPI 2024</span>
+        </div>
+      </div>
 
-    <div class="proj-card">
-      <p class="proj-kicker">Published Research / MDPI Technologies / 2024</p>
-      <h3 class="proj-title">Deep Learning for Alzheimer's Diagnosis via EEG</h3>
-      <p class="proj-desc">Developed a deep learning classification tool for early-stage Alzheimer's diagnosis using open-source EEG datasets, focusing on entropy-based and spectral feature engineering for neural network classifiers. Conducted as a Laidlaw Scholar at SASTRA Deemed University, Thanjavur, India. Published in MDPI Technologies Journal, 2024. A second peer-reviewed co-authorship on global health outcomes was published in Risk Management and Healthcare Policy, 2024.</p>
-      <span class="proj-link">MDPI Technologies, 2024</span>
-    </div>
+      <div class="proj-row">
+        <p class="proj-type">Investment Thesis<br>Fintech</p>
+        <div>
+          <p class="proj-title">Behavioural Fraud Prevention</p>
+          <p class="proj-desc">Thesis arguing that APP fraud is a psychology problem the financial services industry is misclassifying as a technology problem. Examined the $442 billion APP fraud market and the UK mandatory reimbursement regime. Developed an investment framework identifying behavioural intervention design as the primary lever for durable fraud reduction. Submitted to Toronto-based VC firms.</p>
+        </div>
+        <div class="proj-link-col">
+          <span class="text-link" style="cursor:default; border-color: var(--rule);">Private</span>
+        </div>
+      </div>
 
-    <div class="proj-card">
-      <p class="proj-kicker">Investment Thesis / Fintech / 2026</p>
-      <h3 class="proj-title">Behavioural Fraud Prevention: A Venture Thesis</h3>
-      <p class="proj-desc">Analytical thesis arguing that APP fraud represents a psychology problem the financial services industry is systematically misclassifying as a technology problem. Examined the $442 billion APP fraud market, analysed the UK mandatory reimbursement regulatory regime, and developed an investment framework identifying behavioural intervention design as the primary lever for durable fraud reduction. Submitted to Toronto-based early-stage VC firms.</p>
-      <span class="proj-link">Private Distribution</span>
-    </div>
+      <div class="proj-row">
+        <p class="proj-type">Investment Thesis<br>AI Infrastructure</p>
+        <div>
+          <p class="proj-title">Agentic Payments Infrastructure</p>
+          <p class="proj-desc">Investment thesis on the trust and authorisation layer for AI agent commerce as the most underbuilt layer in the autonomous economy. Mapped the agentic payments stack and identified companies positioned to own the authorisation primitives for AI-to-AI commercial transactions at scale.</p>
+        </div>
+        <div class="proj-link-col">
+          <span class="text-link" style="cursor:default; border-color: var(--rule);">Private</span>
+        </div>
+      </div>
 
-    <div class="proj-card">
-      <p class="proj-kicker">Investment Thesis / AI Infrastructure / 2026</p>
-      <h3 class="proj-title">Agentic Payments Infrastructure: A Venture Thesis</h3>
-      <p class="proj-desc">Investment thesis identifying the trust, verification, and authorisation layer for AI agent commerce as the most systematically underbuilt layer in the emerging autonomous economy. Mapped the agentic payments stack, analysed incumbent payment infrastructure limitations in multi-agent environments, and identified companies best positioned to own the authorisation primitives underpinning AI-to-AI commercial transactions at scale.</p>
-      <span class="proj-link">Private Distribution</span>
-    </div>
+      <div class="proj-row">
+        <p class="proj-type">Founder<br>UofT</p>
+        <div>
+          <p class="proj-title">SIINAI</p>
+          <p class="proj-desc">Founded UofT's first interdisciplinary AI and neuroscience community. Zero to 200-plus members in under three months. Coordinated 10 speakers and 3 sponsors for the flagship conference. Subsequently headhunted to co-host a Women in Engineering conference at Toronto Tech Week.</p>
+        </div>
+        <div class="proj-link-col">
+          <span class="text-link" style="cursor:default; border-color: var(--rule);">UofT 2024</span>
+        </div>
+      </div>
 
-    <div class="proj-card">
-      <p class="proj-kicker">Community / Founder / UofT</p>
-      <h3 class="proj-title">SIINAI: Society for Innovation at the Intersection of Natural and Artificial Intelligence</h3>
-      <p class="proj-desc">Founded UofT's first interdisciplinary AI and neuroscience community, scaling from zero to 200-plus members in under three months through structured cold outreach and ecosystem-building with no institutional backing or budget. Coordinated 10 speakers and 3 sponsors for the flagship technology conference. Subsequently headhunted to co-host a Women in Engineering conference at Toronto Tech Week.</p>
-      <span class="proj-link">UofT, 2024</span>
-    </div>
-
-    <div class="proj-card">
-      <p class="proj-kicker">Documentary / UTSC Library Fellowship / 2025</p>
-      <h3 class="proj-title">Flavours in Fusion: Stories of Tamil Food in Toronto</h3>
-      <p class="proj-desc">Short documentary directed as the Sophia Hilton Library Storytelling Fellow at UTSC, exploring the blending of Tamil and other culinary traditions in Toronto's South Asian diaspora community. An exploration of cultural identity, displacement, and memory as expressed through food. Featured by the University of Toronto Scarborough in the 2025 graduate profile series.</p>
-      <span class="proj-link">UTSC Library Fellowship, 2025</span>
     </div>
   </div>
 </div>
 
 <!-- CONTACT -->
-<div class="sec-header">
-  <span class="sec-num">05</span>
-  <span class="sec-name">Contact</span>
-  <span class="sec-line"></span>
-</div>
-
 <div id="contact">
-  <div class="contact-grid">
-    <div class="contact-left">
-      <p class="contact-kicker">Get in touch</p>
-      <h2 class="contact-headline">
-        Open to <em>venture capital,</em> consulting, and business development roles.
-      </h2>
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-heading">Get in touch</h2>
       <div class="contact-items">
         <a href="mailto:bhav.akilan@gmail.com" class="contact-item">
-          <span class="ci-label">Email</span>
-          <span class="ci-value">bhav.akilan@gmail.com</span>
+          <span class="ci-type">Email</span>
+          <span class="ci-val">bhav.akilan@gmail.com</span>
         </a>
         <a href="https://linkedin.com/in/bhavana-akilan" target="_blank" class="contact-item">
-          <span class="ci-label">LinkedIn</span>
-          <span class="ci-value">linkedin.com/in/bhavana-akilan</span>
+          <span class="ci-type">LinkedIn</span>
+          <span class="ci-val">linkedin.com/in/bhavana-akilan</span>
         </a>
         <a href="https://4to8.netlify.app/" target="_blank" class="contact-item">
-          <span class="ci-label">Startup</span>
-          <span class="ci-value">4to8.netlify.app</span>
+          <span class="ci-type">Startup</span>
+          <span class="ci-val">4to8.netlify.app</span>
         </a>
         <a href="tel:+16478910578" class="contact-item">
-          <span class="ci-label">Phone</span>
-          <span class="ci-value">+1 (647) 891-0578</span>
+          <span class="ci-type">Phone</span>
+          <span class="ci-val">+1 (647) 891-0578</span>
         </a>
       </div>
     </div>
-
     <div class="contact-right">
-      <p class="contact-manifesto">
-        "The most interesting problems live where cognitive science meets market dynamics, where AI meets institutional behaviour, where a founder's instinct meets <strong>the evidence.</strong>"
-      </p>
+      <p class="contact-note">Open to venture capital, strategy consulting, and business development roles. Based in Toronto. Available now.</p>
       <div class="contact-status">
-        <div class="status-dot"></div>
-        <span class="status-text">Available for new roles. Toronto, Canada.</span>
+        <div class="dot"></div>
+        <span class="contact-status-text">Available for new roles</span>
       </div>
     </div>
   </div>
 </div>
 
 <footer>
-  <span class="footer-name">Bhavana Akilan</span>
-  <span class="footer-copy">Toronto, Canada / 2026</span>
+  <span class="footer-l">Bhavana Akilan</span>
+  <span class="footer-r">Toronto 2026</span>
 </footer>
 
 </body>
